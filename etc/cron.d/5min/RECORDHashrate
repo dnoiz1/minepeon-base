@@ -30,7 +30,7 @@ require('/opt/minepeon/http/inc/miner.inc.php');
 
 $return = cgminer("summary", "");
 
-$hashrate = $return['SUMMARY'][0]['MHSav'] * 1000;
+$hashrate = $return['SUMMARY'][0]['MHS5s'] * 1000;
 
 $hashrate = time() . ':' . $hashrate;
 
