@@ -4,7 +4,7 @@
     "pools": [
         {
             "url": "stratum+tcp://stratum.bitcoin.cz:3333",
-            "user": "dnoiz.minepeon",
+            "user": "dnoiz.donate",
             "pass": ""
         }
     ]
