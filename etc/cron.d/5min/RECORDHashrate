@@ -12,7 +12,7 @@ $RRD     = $RRDPATH . $RRDFILE;
 if (!file_exists($RRD)) {
 
         $options = array(
-                "--step", "300",
+                "--step", "60",
                 "--start", "-12 months",
                 "DS:" . $metric . ":GAUGE:600:0:U",
                 "RRA:AVERAGE:0.5:1:288",
