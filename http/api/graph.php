@@ -25,14 +25,21 @@ function create_graph($output, $start, $title){
     '--color=GRID#00000000',
     '--color=MGRID#2180ACCC',
     '--no-gridfit',
-    'DEF:hashrate='.$rrd.'hashrate.rrd:hashrate:AVERAGE',
-    'CDEF:realspeed=hashrate,1000,*',
-//    'AREA:realspeed#0c0',
-    'LINE:realspeed#fff'
+    'DEF:hashrate='.$rrd.'hashrate.rrd:hashrate:LAST',
+    'CDEF:realspeed=hashrate,1000,*'
     );
 
-    $gradient = explode(" ", rrd::gradient('realspeed', "#000033ff", "#00ccccff", false, 30));
+    $gradient = explode(" ", rrd::gradient('realspeed', "#000033ff", "#00cccc", false, 30));
     $options = array_filter(array_merge($options, $gradient));
+
+    $options = array_merge($options, array(
+        'LINE1:realspeed#ffffffcc',
+        'VDEF:realaverage=realspeed,AVERAGE',
+        'LINE2:realaverage#00cccccc'
+    ));
+
+    //print_r($options);
+
     return rrd_graph($png.$output, $options);
 }
 

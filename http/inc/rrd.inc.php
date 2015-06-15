@@ -73,17 +73,22 @@ class rrd {
      * Gradient Function
      * Concept by Stefan Triep
      */
-    public static function gradient($vname=FALSE, $start_color='#0000a0', $end_color='#f0f0f0', $label=FALSE, $steps=20, $lower=FALSE){
+    public static function gradient($vname=FALSE, $start_color='#0000a0ff', $end_color='#f0f0f0', $label=FALSE, $steps=20, $lower=FALSE){
         if($vname === FALSE){
             throw new Exception("rrd::". __FUNCTION__ . "() First Parameter 'vname' is missing");   
         }
-        if(preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i',$start_color,$matches)){
+        if(preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i',$start_color,$matches)){
             $r1=hexdec($matches[1]);
             $g1=hexdec($matches[2]);
             $b1=hexdec($matches[3]);
+            $a=hexdec($matches[4]);
         }else{
             throw new Exception("rrd::". __FUNCTION__ . "() Wrong Color Format: '".$start_color."'");   
         }            
+
+        if (!$a) {
+            $a = 'ff';
+        }
 
         if(preg_match('/^#?([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})/i',$end_color,$matches)){
             $r2=hexdec($matches[1]);
@@ -123,10 +128,11 @@ class rrd {
             $r=round($r1 + $diff_r * $factor);
             $g=round($g1 + $diff_g * $factor);
             $b=round($b1 + $diff_b * $factor);
+
             if (($i==$steps) and ($label!=FALSE)){
-                $spline .=  sprintf("AREA:%s%d#%02X%02X%02X:\"%s\" ", $spline_vname,$i,$r,$g,$b,$label);
+                $spline .=  sprintf("AREA:%s%d#%02X%02X%02X%02X:\"%s\" ", $spline_vname,$i,$r,$g,$b,$a,$label);
             }else{
-                $spline .=  sprintf("AREA:%s%d#%02X%02X%02X ", $spline_vname,$i,$r,$g,$b);
+                $spline .=  sprintf("AREA:%s%d#%02X%02X%02X%02X ", $spline_vname,$i,$r,$g,$b,$a);
             }
         }
         return $spline;
