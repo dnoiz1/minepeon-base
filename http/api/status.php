@@ -5,7 +5,7 @@ returns success, status data and errors
 */
 header('Content-type: application/json');
 
-include('cgminer.inc.php');
+include('../inc/cgminer.inc.php');
 
 // Miner data
 //$r['summary'] = cgminer('summary', '')['SUMMARY'];

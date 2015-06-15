@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-include('settings.inc.php');
+include('/opt/minepeon/http/inc/settings.inc.php');
 
 $metric  = 'hashrate';
 $RRDFILE = $metric . '.rrd';
@@ -26,7 +26,7 @@ if (!file_exists($RRD)) {
 
 // ############################### Get the data
 
-require('miner.inc.php');
+require('/opt/minepeon/http/inc/miner.inc.php');
 
 $return = cgminer("summary", "");
 

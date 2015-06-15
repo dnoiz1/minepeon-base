@@ -1,0 +1,10 @@
+[Unit]
+Description=framebuffer
+
+[Service]
+#Type=forking
+ExecStart=/opt/minepeon/bin/screensaver.sh
+ExecStop=killall fbi
+
+[Install]
+WantedBy=multi-user.target

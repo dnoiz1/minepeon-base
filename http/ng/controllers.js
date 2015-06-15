@@ -80,7 +80,7 @@ angular.module('Peon.controllers', [])
     })
     .error(function(){
       // Title
-      $scope.title='Apache DOWN -';
+      $scope.title='Nginx DOWN -';
       // Live Graphs
       $scope.live.push([Date.now(),0]);
     })

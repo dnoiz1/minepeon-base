@@ -6,7 +6,7 @@ returns settings and ['date']
 header('Content-type: application/json');
 $configFolder='/opt/minepeon/etc/';
 $configMinepeon=$configFolder.'minepeon.conf';
-$configUipwd=$configFolder.'uipasswd';
+$configUipwd=$configFolder.'uipassword';
 $configOptns=$configFolder.'miner.options.json';
 $configPools=$configFolder.'miner.pools.json';
 $configMiner=$configFolder.'miner.conf';

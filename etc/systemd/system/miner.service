@@ -1,0 +1,14 @@
+[Unit]
+Description=cgminer
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=forking
+User=minepeon
+TimeoutStartSec=0
+ExecStart=/opt/minepeon/etc/init.d/miner-start.sh
+ExecStop=/opt/minepeon/etc/init.d/miner-stop.sh
+
+[Install]
+WantedBy=multi-user.target

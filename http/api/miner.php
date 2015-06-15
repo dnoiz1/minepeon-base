@@ -5,7 +5,7 @@ returns success, command, miner response and possible errors
 */
 header('Content-type: application/json');
 
-include('cgminer.inc.php');
+include('../inc/cgminer.inc.php');
 
 if (empty($_REQUEST['command']) && empty($_REQUEST['parameter'])) {
   $r = cgminer();

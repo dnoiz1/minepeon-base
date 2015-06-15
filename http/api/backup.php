@@ -9,7 +9,7 @@
 $backupFolder= '/opt/minepeon/etc/backup/';
 $baseFolder  = '/opt/minepeon/';
 
-include('backup.inc.php');
+include('../inc/backup.inc.php');
 
 // Zip a folder and serve as download
 if (!empty($_REQUEST['export'])) {

@@ -1,7 +1,7 @@
 #!/usr/bin/php 
 <?php
 
-include('settings.inc.php');
+include('/opt/minepeon/http/inc/settings.inc.php');
 
 $metric  = 'temp';
 $RRDFILE = $metric . '.rrd';
