@@ -1,0 +1,2 @@
+* * * * * /opt/minepeon/etc/cron.d/5min/RECORDHashrate >/dev/null 2>&1
+* * * * * /opt/minepeon/etc/cron.d/5min/RECORDPiTemperature >/dev/null 2>&1

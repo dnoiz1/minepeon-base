@@ -1,0 +1,1 @@
+*/5 * * * * php -f /opt/minepeon/http/api/graph.php >/dev/null 2>&1
